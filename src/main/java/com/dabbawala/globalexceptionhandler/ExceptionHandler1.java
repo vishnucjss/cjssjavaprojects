@@ -1,7 +1,7 @@
 package com.dabbawala.globalexceptionhandler;
 
 import com.dabbawala.exceptions.*;
-import com.dabbawala.models.DuplicateCustomersNotAllowed;
+import com.dabbawala.exceptions.DuplicateCustomersNotAllowed;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -64,9 +64,14 @@ public class ExceptionHandler1 {
         return "RecipesNotFound";
     }
     @ExceptionHandler(DuplicateCustomersNotAllowed.class)
-    public String  RecipesNotFound()
+    public String  duplicateCustomersNotAllowed()
     {
         return "DuplicateCustomersNotAllowed";
+    }
+    @ExceptionHandler(DuplicatesRestaurantsNotAllowed.class)
+    public String  DuplicatesRestaurantsNotAllowed()
+    {
+        return "DuplicatesRestaurantsNotAllowed";
     }
 
 

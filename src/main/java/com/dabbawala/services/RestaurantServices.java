@@ -1,6 +1,7 @@
 package com.dabbawala.services;
 
 import com.dabbawala.entities.restaurantEntity.Recipe;
+import com.dabbawala.exceptions.DuplicateCustomersNotAllowed;
 import com.dabbawala.exceptions.RecipesNotFound;
 import com.dabbawala.exceptions.RestaurantDoesNotExitException;
 import com.dabbawala.models.RecipesDetails;
@@ -21,6 +22,13 @@ public class RestaurantServices
 
     public Restaurant addRestaurant(Restaurant restaurant)
     {
+        ;
+        for(Restaurant restaurant1:restaurantRepository.findAll())
+        {
+            if(restaurant1.equals(restaurant))
+                throw new DuplicateCustomersNotAllowed();
+        }
+
         return restaurantRepository.save(restaurant);
     }
 

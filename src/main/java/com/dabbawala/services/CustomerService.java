@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.dabbawala.entities.customerEntity.*;
 import com.dabbawala.entities.restaurantEntity.Restaurant;
 import com.dabbawala.exceptions.*;
-import com.dabbawala.models.DuplicateCustomersNotAllowed;
+import com.dabbawala.exceptions.DuplicateCustomersNotAllowed;
 import com.dabbawala.repositories.CustomerRepository;
 import com.dabbawala.repositories.MyCartRecepiesRepository;
 import com.dabbawala.repositories.MyCartRepository;
@@ -17,7 +17,7 @@ import com.dabbawala.entities.customerEntity.Customer;
 import com.dabbawala.entities.customerEntity.Order;
 import com.dabbawala.models.CartInformation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,13 +41,13 @@ public class CustomerService {
 
 
         List<Customer> customers=customerRepository.findAll();
-//       for(Customer customer1:customers)
-//       {
-//           if(customer1.equals(customer))
-//               throw new DuplicateCustomersNotAllowed();
-//
-//       }
-        //   System.out.println(customer.equalss(customer));
+       for(Customer customer1:customers)
+       {
+           if(customer1.equals(customer))
+               throw new DuplicateCustomersNotAllowed();
+
+       }
+           System.out.println(customer.equals(customer));
 
         return customerRepository.save(customer);
     }

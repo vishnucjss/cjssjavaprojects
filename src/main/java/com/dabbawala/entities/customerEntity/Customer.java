@@ -46,7 +46,15 @@ public class Customer
   @JsonManagedReference
     private MyCart myCart;
 
-
+    public boolean equals(Customer customer)
+    {
+        return this.getCustomerName().equals(customer.getCustomerName())&&
+                this.getEmail().equals(customer.getEmail())&&
+                this.getLocation().equals(customer.getLocation())&&
+                this.getMembership().equals(customer.getMembership())&&
+                this.getDateOfBirth().equals(customer.getDateOfBirth())&&
+                this.getPhoneNo().equals(customer.getPhoneNo());
+    }
 
 
 
